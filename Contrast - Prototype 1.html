@@ -1,0 +1,155 @@
+
+<html><head>
+	<script type="text/javascript">
+	<!--
+
+	-->
+	</script>
+	<title>Contrast - Prototype 1</title>
+	</head>
+	<body style="background-color: rgb(43, 176, 130);"><h1>Contrast - Prototype 1</h1>
+	<h3>Last revised May 13th, 2015</h3>
+	<style type="text/css">
+		.gamebox {
+			height:        200px;
+			width:         200px;
+			float:         left;
+			margin-right:  50px;
+			margin-left:   50px;
+			margin-top:    50px;
+			margin-bottom: 50px;
+			border: none;
+			}
+		.gamebox:hover {
+			height: 250px;
+			width:  250px;
+			margin-right:  25px;
+			margin-left:   25px;
+			margin-top:    25px;
+			margin-bottom: 25px;
+			-webkit-animation: grow .75s;
+			}
+		@-webkit-keyframes grow {
+			0%		{
+					height: 200px;
+					width: 200px; 
+					margin-right:  50px;
+					margin-left:   50px;
+					margin-top:    50px;
+					margin-bottom: 50px
+			}
+			100%	{
+					height: 250px; 
+					width: 250px;
+					margin-right:  25px;
+					margin-left:   25px;
+					margin-top:    25px;
+					margin-bottom: 25px
+					}
+		}
+		.white {
+			height: 200px;
+			width:  350px;
+			float: right;
+			background-color: #FFFFFF;
+			}
+	
+	</style>
+
+
+	<button id="boxOne" class="gamebox" onclick="backgroundChange(r1, g1, b1)"></button>
+	<button id="boxTwo" class="gamebox" onclick="backgroundChange(r2, g2, b2)"></button>
+	<button id="boxThree" class="gamebox" onclick="backgroundChange(r3, g3, b3)"></button>
+	<button id="boxFour" class="gamebox" onclick="init()"></button>
+	<div id="difference" class="white">
+		Difference index computed by:<br>
+		|red - bg_red| + |green - bg_green| + |blue-bg_blue|<br><br>
+<script type="text/javascript">
+	<!--
+		function backgroundChange(r, g, b){
+	document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+	r1 = Math.floor(256 * Math.random());
+	g1 = Math.floor(256 * Math.random());
+	b1 = Math.floor(256 * Math.random());
+	r2 = Math.floor(256 * Math.random());
+	g2 = Math.floor(256 * Math.random());
+	b2 = Math.floor(256 * Math.random());
+	r3 = Math.floor(256 * Math.random());
+	b3 = Math.floor(256 * Math.random());
+	g3 = Math.floor(256 * Math.random());
+	r4 = Math.floor(256 * Math.random());
+	g4 = Math.floor(256 * Math.random());
+	b4 = Math.floor(256 * Math.random());
+	
+	//set the color of the boxes
+	document.getElementById('boxOne').style.backgroundColor = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+	document.getElementById('boxTwo').style.backgroundColor = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+	document.getElementById('boxThree').style.backgroundColor = "rgb(" + r3 + "," + g3 + "," + b3 + ")";
+	document.getElementById('boxFour').style.backgroundColor = "rgb(" + r4 + "," + g4 + "," + b4 + ")";
+		
+		//show the "difference index" of the boxes
+	document.getElementById("difference").innerHTML = "Difference Index:<br />"
+													+ "Box1: " + (Math.abs(r1 - bgr) + Math.abs(g1 - bgg) + Math.abs(b1 - bgb)) + "<br />"
+													+ "Box2: " + (Math.abs(r2 - bgr) + Math.abs(g2 - bgg) + Math.abs(b2 - bgb)) + "<br />"
+													+ "Box3: " + (Math.abs(r3 - bgr) + Math.abs(g3 - bgg) + Math.abs(b3 - bgb)) + "<br />"
+													+ "Box4: " + (Math.abs(r1 - bgr) + Math.abs(g4 - bgg) + Math.abs(b4 - bgb)) + "<br />";
+	}
+	
+var foo = null;
+	
+function expand(){
+  foo.style.height = parseInt(foo.style.height)+1+'px';
+  setTimeout(expand,20); // call doMove in 20msec
+}
+
+function init() {
+  foo = document.getElementById('boxFour'); // get the "foo" object
+  foo.style.height = '200px'; // set its initial position to 0px
+  expand(); // start animating
+}
+	
+	
+	var r1, g1, b1, r2, g2, b2, r3, g3, b3, r4, g4, b4, bgr, bgg, bgb; //box colours and background colour
+	
+	
+	//assign random values to all of these
+	//should generate a value between 0 and 255
+	r1 = Math.floor(256 * Math.random());
+	g1 = Math.floor(256 * Math.random());
+	b1 = Math.floor(256 * Math.random());
+	r2 = Math.floor(256 * Math.random());
+	g2 = Math.floor(256 * Math.random());
+	b2 = Math.floor(256 * Math.random());
+	r3 = Math.floor(256 * Math.random());
+	b3 = Math.floor(256 * Math.random());
+	g3 = Math.floor(256 * Math.random());
+	r4 = Math.floor(256 * Math.random());
+	g4 = Math.floor(256 * Math.random());
+	b4 = Math.floor(256 * Math.random());
+	bgr = Math.floor(256 * Math.random());
+	bgg = Math.floor(256 * Math.random());
+	bgb = Math.floor(256 * Math.random());
+	
+	
+	//set the color of the boxes
+	document.getElementById('boxOne').style.backgroundColor = "rgb(" + r1 + "," + g1 + "," + b1 + ")";
+	document.getElementById('boxTwo').style.backgroundColor = "rgb(" + r2 + "," + g2 + "," + b2 + ")";
+	document.getElementById('boxThree').style.backgroundColor = "rgb(" + r3 + "," + g3 + "," + b3 + ")";
+	document.getElementById('boxFour').style.backgroundColor = "rgb(" + r4 + "," + g4 + "," + b4 + ")";
+	document.body.style.backgroundColor = "rgb(" + bgr + "," + bgg + "," + bgb + ")";
+	
+	
+	
+	//show the "difference index" of the boxes
+	document.getElementById("difference").innerHTML += "Difference Index:<br />"
+													+ "Box1: " + (Math.abs(r1 - bgr) + Math.abs(g1 - bgg) + Math.abs(b1 - bgb)) + "<br />"
+													+ "Box2: " + (Math.abs(r2 - bgr) + Math.abs(g2 - bgg) + Math.abs(b2 - bgb)) + "<br />"
+													+ "Box3: " + (Math.abs(r3 - bgr) + Math.abs(g3 - bgg) + Math.abs(b3 - bgb)) + "<br />"
+													+ "Box4: " + (Math.abs(r1 - bgr) + Math.abs(g4 - bgg) + Math.abs(b4 - bgb)) + "<br />";
+													
+
+	
+	-->
+	</script>
+
+</body></html>
